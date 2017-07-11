@@ -52,10 +52,9 @@ class ConfettiView extends Component {
 
   render() {
        let {confettis} = this.state;
-       let {...otherProps} = this.props
-       return <View style={styles.container}>
+       return <View style={[styles.container, this.props.style]}>
          {confettis.map(confetti => {
-             return <Confetti key={confetti.key} index={confetti.key} onComplete={this.removeConfetti.bind(this, confetti.key)} colors={this.props.colors} {...otherProps}/>
+             return <Confetti key={confetti.key} index={confetti.key} onComplete={this.removeConfetti.bind(this, confetti.key)} colors={this.props.colors} />
          })}
        </View>
   }
